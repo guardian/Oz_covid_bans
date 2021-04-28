@@ -4,7 +4,7 @@ from modules.yachtCharter import yachtCharter
 
 data_path = os.path.dirname(__file__) + "/data/"
 
-ceevee = f"{data_path}countries.csv"
+ceevee = f"{data_path}inter/countries.csv"
 
 df = pd.read_csv(ceevee, parse_dates=['When'])
 
@@ -92,5 +92,5 @@ def makeSince100Chart(df):
 # makeSince100Chart(pivoted)
 
 pivoted = pivoted.reset_index()
-with open(f"{data_path}grouped_bar.csv", "w") as f:
+with open(f"{data_path}overseas_source_grouped_bar.csv", "w") as f:
     pivoted.to_csv(f, index=False, header=True)

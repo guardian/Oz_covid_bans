@@ -1,5 +1,7 @@
 import pandas as pd 
 from modules.yachtCharter import yachtCharter
+import os 
+data_path = os.path.dirname(__file__) + "/data/"
 
 cases = 'https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv'
 
@@ -61,4 +63,8 @@ def makeSince100Chart(df):
     # yachtCharter(template=template, data=chartData, chartId=[{"type":"linechart"}], options=[{"colorScheme":colours, "lineLabelling":"FALSE"}], chartName="total_cases_per_m_over_time")
 
 
-makeSince100Chart(pivoted)
+# makeSince100Chart(pivoted)
+
+pivoted = pivoted.reset_index()
+with open(f"{data_path}new_cases_per_m_line.csv", "w") as f:
+    pivoted.to_csv(f, index=False, header=True)

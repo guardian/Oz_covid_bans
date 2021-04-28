@@ -29,8 +29,11 @@ df = pd.concat(listo)
 df = df[['location', 'date','new_cases_per_million']]
 df['Rank'] = df['new_cases_per_million'].rank(ascending=False)
 
-sorted = df.sort_values(by='Rank', ascending=True)
-print(sorted.head(100))
+# sorted = df.sort_values(by='Rank', ascending=True)
+# print(sorted.head(104))
+
+with open(f"{data_path}new_cases_per_m_ranked.csv", "w") as f:
+    df.to_csv(f, index=False, header=True)
 
 # print(df.loc[df['location'].isin(countries)])
 
