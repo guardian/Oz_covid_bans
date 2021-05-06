@@ -1,5 +1,5 @@
-import pandas as pd 
-import os 
+import pandas as pd
+import os
 from modules.yachtCharter import yachtCharter
 
 data_path = os.path.dirname(__file__) + "/data/"
@@ -49,11 +49,11 @@ pivoted.columns.name = None
 
 
 
-print(pivoted)
+# print(pivoted)
 
 
 def makeSince100Chart(df):
-   
+
     template = [
             {
                 "title": "New South Wales' overseas acquired cases by country of origin",
@@ -89,8 +89,8 @@ def makeSince100Chart(df):
     # yachtCharter(template=template, data=chartData, chartId=[{"type":"linechart"}], options=[{"colorScheme":colours, "lineLabelling":"FALSE"}], chartName="total_cases_per_m_over_time")
 
 
-# makeSince100Chart(pivoted)
+makeSince100Chart(pivoted)
 
-pivoted = pivoted.reset_index()
-with open(f"{data_path}overseas_source_grouped_bar.csv", "w") as f:
-    pivoted.to_csv(f, index=False, header=True)
+# pivoted = pivoted.reset_index()
+# with open(f"{data_path}overseas_source_grouped_bar.csv", "w") as f:
+#     pivoted.to_csv(f, index=False, header=True)
